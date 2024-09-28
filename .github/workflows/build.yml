@@ -64,7 +64,7 @@ jobs:
           java-version: ${{ env.BUILD_JAVA_VERSION }}
           distribution: ${{ env.BUILD_JAVA_DIST }}
       - name: Change Gradle wrapper permissions
-        run: chmod +x ./gradlew
+        run: chmod +x ./gradlew --warning-mode all
       - name: Restore cache
         uses: actions/cache@v4
         with:
