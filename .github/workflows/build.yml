@@ -76,12 +76,12 @@ jobs:
       - name: Copy debug APK
         run: cp app/build/outputs/apk/**/debug/*.apk ./
       - name: Upload arm64-v8a-debug APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: apk-arm64-v8a-debug
           path: app-arm64-v8a-arm64-v8a-debug.apk
       - name: Upload armeabi-v7a-debug APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: apk-armeabi-v7a-debug
           path: app-armeabi-v7a-armeabi-v7a-debug.apk
@@ -119,17 +119,17 @@ jobs:
       - name: Copy release APK
         run: cp app/build/outputs/apk/**/release/*.apk ./
       - name: Upload arm64-v8a-release APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: apk-arm64-v8a-release
           path: app-arm64-v8a-arm64-v8a-release.apk
       - name: Upload armeabi-v7a-release APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: apk-armeabi-v7a-release
           path: app-armeabi-v7a-armeabi-v7a-release.apk
       - name: Upload mappings
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: release-mappings
           path: '**/build/outputs/mapping'
@@ -164,7 +164,7 @@ jobs:
           ANDROIDIDE_TEST: true
       - name: Upload Test Reports
         if: ${{ always() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-results-unit-tests
           path: '**/build/reports/tests/'
@@ -200,7 +200,7 @@ jobs:
           TEST_TOOLING_API_IMPL: true
       - name: Upload Test Reports
         if: ${{ always() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-results-tooling-api-tests
           path: '**/build/reports/tests/'
@@ -242,7 +242,7 @@ jobs:
       - name: Publish release
         run: ./gradlew nyxMake nyxMark nyxPublish publish release --stacktrace
       - name: Archive Nyx state file
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: ${{ always() }}
         with:
           name: .nyx-state-${{ github.job }}.json
