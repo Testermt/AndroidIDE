@@ -222,7 +222,7 @@ jobs:
           arch: x86_64
           profile: Nexus 6P
       - name: Run emulator
-        uses: reactivecircus/android-emulator-runner@v3
+        uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 30
           target: google_apis
