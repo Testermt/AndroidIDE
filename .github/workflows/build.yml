@@ -214,7 +214,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: ${{ env.BUILD_JAVA_VERSION }}
-          distribution: 'temurin'  # Specify the distribution here
+          distribution: 'temurin'
       - name: Set up Android SDK
         uses: android-actions/setup-android@v2
         with:
@@ -230,5 +230,4 @@ jobs:
           arch: x86_64
           profile: Nexus 6P
           disable-animations: true
-      - name: Run instrumentation tests
-        run: ./gradlew connectedDebugAndroidTest
+          script: ./gradlew connectedDebugAndroidTest  # Required script to run tests
