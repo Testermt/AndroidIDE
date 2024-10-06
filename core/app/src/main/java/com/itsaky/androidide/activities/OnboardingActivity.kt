@@ -56,9 +56,9 @@ class OnboardingActivity : AppIntro2() {
     ActivityResultContracts.StartActivityForResult()) {
     Log.d(TAG, "TerminalActivity: resultCode=${it.resultCode}")
     if (!isFinishing) {
-      reloadJdkDistInfo {
-        tryNavigateToMainIfSetupIsCompleted()
-      }
+      // reloadJdkDistInfo {
+      //   tryNavigateToMainIfSetupIsCompleted()
+      // }
     }
   }
 
@@ -115,29 +115,29 @@ class OnboardingActivity : AppIntro2() {
       return
     }
 
-    if (!checkDeviceSupported()) {
-      return
-    }
+    // if (!checkDeviceSupported()) {
+    //   return
+    // }
 
-    if (!StatPreferences.statConsentDialogShown) {
-      addSlide(StatisticsFragment.newInstance(this))
-      StatPreferences.statConsentDialogShown = true
-    }
+    // if (!StatPreferences.statConsentDialogShown) {
+    //   addSlide(StatisticsFragment.newInstance(this))
+    //   StatPreferences.statConsentDialogShown = true
+    // }
 
     if (!PermissionsFragment.areAllPermissionsGranted(this)) {
       addSlide(PermissionsFragment.newInstance(this))
     }
 
-    if (!checkToolsIsInstalled()) {
-      addSlide(IdeSetupConfigurationFragment.newInstance(this))
-    }
-  }
+  //   if (!checkToolsIsInstalled()) {
+  //     addSlide(IdeSetupConfigurationFragment.newInstance(this))
+  //   }
+  // }
 
   override fun onResume() {
     super.onResume()
-    reloadJdkDistInfo {
-      tryNavigateToMainIfSetupIsCompleted()
-    }
+    // reloadJdkDistInfo {
+    //   tryNavigateToMainIfSetupIsCompleted()
+    // }
   }
 
   override fun onDestroy() {
@@ -177,9 +177,9 @@ class OnboardingActivity : AppIntro2() {
   }
 
   private fun isSetupCompleted(): Boolean {
-    return checkToolsIsInstalled()
+    return /*checkToolsIsInstalled()
         && StatPreferences.statConsentDialogShown
-        && PermissionsFragment.areAllPermissionsGranted(this)
+        && */PermissionsFragment.areAllPermissionsGranted(this)
   }
 
   private fun tryNavigateToMainIfSetupIsCompleted(): Boolean {
